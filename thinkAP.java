@@ -1,7 +1,8 @@
 public class thinkAP {
 	public static void main(String[] args) {
 		//isAbecedarian("yolo");
-		isDupledrome("yyeett");
+		//isDupledrome("yyeett");
+		captainCrunch("ab");
 	}
 	public static boolean isAbecedarian(String a) {
 		for (int i = 0; i<a.length(); i++) {
@@ -23,5 +24,20 @@ public class thinkAP {
 		}
 		System.out.println("False");
 		return false;
+	}
+	public static String captainCrunch(String x) {
+		String crunchy = new String();
+		char z = 'z';
+		char a = 'a';
+		for (int i = 0; i<x.length(); i++) {
+			
+			if (x.charAt(i) + 13 > z) {
+				crunchy = crunchy + String.valueOf((char)(a + (12 - (z - x.charAt(i)))));
+			} else {
+				crunchy = crunchy + String.valueOf((char)(x.charAt(i) + 13));
+			}
+		}
+		System.out.println(crunchy);
+		return crunchy;
 	}
 }
