@@ -1,12 +1,13 @@
 public class Stats {
 	public static void main(String[] args) {
-		int[] a = {1, 2, 3, 4, 5, 6};
+		int[] a = {1, 2, 3, 4, 5, 6, 7};
 
 		//max(a);
 		//min(a);
 		//mean(a);
 		//print(median(a));
-		print(quartileOne(a));
+		//print(quartileOne(a));
+		print(quartileThree(a));
 	}
 	public static void print(double a) {
 		System.out.println(a);
@@ -70,6 +71,20 @@ public class Stats {
 			median = (double)a[length-1] / 4 + 0.25;
 		} else {
 			median = a[(length - 1) / 4];
+		}
+		
+		return median;
+	}
+	public static double quartileThree(int[] a) {
+		double median = a[0];
+		int length = 0;
+		for (int i = 0; i<a.length; i++) {
+			length++;
+		}
+		if (length % 2 == 0) {
+			median = (((double)a[length-1] / 4) * 3) + 0.5;
+		} else {
+			median = a[((length - 1) / 4) * 3];
 		}
 		
 		return median;
