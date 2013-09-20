@@ -1,13 +1,13 @@
 public class Stats {
 	public static void main(String[] args) {
-		int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int[] a = {1, 2, 3, 4, 5, 6, 7, 8};
 
 		//max(a);
 		//min(a);
 		//mean(a);
 		//print(median(a));
 		//print(quartileOne(a));
-		print(quartileThree(a));
+		//print(quartileThree(a));
 	}
 	public static void print(double a) {
 		System.out.println(a);
@@ -88,5 +88,21 @@ public class Stats {
 		}
 		
 		return median;
+	}
+	public static int mode(int[] a) {
+		int most = (a.length-1);
+		int occurance = 0;
+		int num = 0;
+		for (int i = 0; i<a.length-1; i++) {
+			if (a[i] == a[most]) {
+				occurance++;
+				most--;
+				num = i;
+
+			} else {
+				most--;
+			}
+		}
+		
 	}
 }
