@@ -1,6 +1,6 @@
 public class Stats {
 	public static void main(String[] args) {
-		int[] a = {1, 2, 3, 4, 5, 6, 7};
+		int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 		//max(a);
 		//min(a);
@@ -84,7 +84,7 @@ public class Stats {
 		if (length % 2 == 0) {
 			median = (((double)a[length-1] / 4) * 3) + 0.5;
 		} else {
-			median = a[((length - 1) / 4) * 3];
+			median = (((double)a[length-1] / 4) * 3) + 0.25;
 		}
 		
 		return median;
