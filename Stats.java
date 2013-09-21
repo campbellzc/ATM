@@ -1,6 +1,6 @@
 public class Stats {
 	public static void main(String[] args) {
-		int[] a = {1, 2, 6, 4, 5, 6, 7};
+		int[] a = {1, 2, 3, 4, 5, 6, 7};
 
 		//max(a);
 		//min(a);
@@ -8,7 +8,8 @@ public class Stats {
 		//print(median(a));
 		//print(quartileOne(a));
 		//print(quartileThree(a)); Not Finished!!
-		mode(a);
+		//mode(a);
+		standardDeviation(a);
 	}
 	public static void print(double a) {
 		System.out.println(a);
@@ -96,17 +97,40 @@ public class Stats {
 			length++;
 		}
 		
-		int num = 0;
-		int occurance = 0;
+		int num = a[0];
 		
-		for (int i=0, most = (length-1); i<=a.length-1; i++, most--) {
-			if (a[i] == a[most]) {
-				num = i;
-				occurance++;
+		int finalCount = 0;
+		
+		for (int i=0; i<a.length; i++) {
+			int occurance = 0;
+			for (int r=0; r<a.length; r++) {
+
+				if (a[r] == a[i]) {
+					
+					occurance++;
+				}
+			}
+			if (occurance > finalCount) {
+				
+				finalCount = occurance;
+				num = a[i];
 			}
 		}
 		System.out.println("The mode is: " + num);
-		System.out.println("It occurs " + occurance + " time(s).");
+		System.out.println("It occurs " + finalCount + " time(s).");
 		return num;
+	}
+	public static double standardDeviation(int[] a) {
+		double total = 0.0;
+		double sum = 0.0;
+		double mean = mean(a);
+
+		for (int i = 0; i<a.length; i++) {
+			sum += Math.pow((mean - a[i]), 2);
+		}
+		sum = sum / (a.length-1);
+		total = Math.sqrt(sum);
+		System.out.println("The standard deviation of this array is: " + total);
+		return total;
 	}
 }
