@@ -1,15 +1,15 @@
 public class Stats {
 	public static void main(String[] args) {
-		int[] a = {1, 2, 3, 4, 5, 6};
+		int[] a = {1, 2, 3, 4, 5, 6, 99, 99};
 
-		//max(a);
-		//min(a);
-		//mean(a);
-		//print(median(a));
-		//print(quartileOne(a));
-		print(quartileThree(a));
-		//mode(a);
-		//standardDeviation(a);
+		max(a);
+		min(a);
+		mean(a);
+		print(median(a));
+		print(quartile1(a));
+		print(quartile3(a));
+		mode(a);
+		standardDeviation(a);
 	}
 	public static void print(double a) {
 		System.out.println(a);
@@ -52,18 +52,15 @@ public class Stats {
 		int length = 0;
 		for (int i = 0; i<a.length; i++) {
 			length++;
-
-
 		}
 		if (length % 2 == 0) {
 			median = (length /2.0) + 0.5;
 		} else {
 			median = a[length / 2];
 		}
-
 		return median;
 	}
-	public static double quartileOne(int[] a) {
+	public static double quartile1(int[] a) {
 		double median = a[0];
 		int length = 0;
 		for (int i = 0; i<a.length; i++) {
@@ -74,10 +71,9 @@ public class Stats {
 		} else {
 			median = a[(length - 1) / 4] + 0.5;
 		}
-
 		return median;
 	}
-	public static double quartileThree(int[] a) {
+	public static double quartile3(int[] a) {
 		double median = a[0];
 		int length = 0;
 		for (int i = 0; i<a.length; i++) {
@@ -88,7 +84,6 @@ public class Stats {
 		} else {
 			median = ((double)a[a.length - 1] / 4 * 3) + 0.25;
 		}
-
 		return median;
 	}
 	public static int mode(int[] a) {
@@ -96,22 +91,16 @@ public class Stats {
 		for (int j=0; j<a.length; j++) {
 			length++;
 		}
-
 		int num = a[0];
-
 		int finalCount = 0;
-
 		for (int i=0; i<a.length; i++) {
 			int occurance = 0;
 			for (int r=0; r<a.length; r++) {
-
 				if (a[r] == a[i]) {
-
 					occurance++;
 				}
 			}
 			if (occurance > finalCount) {
-
 				finalCount = occurance;
 				num = a[i];
 			}
@@ -124,7 +113,6 @@ public class Stats {
 		double total = 0.0;
 		double sum = 0.0;
 		double mean = mean(a);
-
 		for (int i = 0; i<a.length; i++) {
 			sum += Math.pow((mean - a[i]), 2);
 		}
