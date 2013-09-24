@@ -1,15 +1,15 @@
 public class Stats {
 	public static void main(String[] args) {
-		int[] a = {1, 2, 3, 4, 5, 6, 7};
+		int[] a = {1, 2, 3, 4, 5, 6};
 
 		//max(a);
 		//min(a);
 		//mean(a);
 		//print(median(a));
 		//print(quartileOne(a));
-		//print(quartileThree(a)); Not Finished!!
+		print(quartileThree(a));
 		//mode(a);
-		standardDeviation(a);
+		//standardDeviation(a);
 	}
 	public static void print(double a) {
 		System.out.println(a);
@@ -70,9 +70,9 @@ public class Stats {
 			length++;
 		}
 		if (length % 2 == 0) {
-			median = (double)a[length-1] / 4 + 0.25;
+			median = ((double)a[length-1] / 4) + 0.5;
 		} else {
-			median = a[(length - 1) / 4];
+			median = a[(length - 1) / 4] + 0.5;
 		}
 
 		return median;
@@ -84,9 +84,9 @@ public class Stats {
 			length++;
 		}
 		if (length % 2 == 0) {
-			median = (((double)a[length-1] / 4) * 3) + 0.5;
+			median = ((double)a[length-1] / 4 * 3) + 0.5;
 		} else {
-			median = (double)a[((a.length - 1) / 4) * 3];
+			median = ((double)a[a.length - 1] / 4 * 3) + 0.25;
 		}
 
 		return median;
