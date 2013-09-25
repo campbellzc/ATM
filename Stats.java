@@ -1,28 +1,28 @@
 public class Stats {
 	public static void main(String[] args) {
-		int[] a = {1, 2, 3, 4, 5, 6, 99, 99};
+		int[] a = {-1, -2, -5, -5, -5, 6, 99, 99};
 
-		max(a);
-		min(a);
-		mean(a);
+		print(max(a));
+		print(min(a));
+		print(mean(a));
 		print(median(a));
 		print(quartile1(a));
 		print(quartile3(a));
-		mode(a);
-		standardDeviation(a);
+		print(mode(a));
+		print(standardDeviation(a));
 	}
 	public static void print(double a) {
 		System.out.println(a);
 	}
 	public static int max(int[] a) {
-		int largest = 0;
+		int largest = a[0];
 
-		for (int i=0; i<a.length; i++) {
+		for (int i=1; i<a.length; i++) {
 			if (a[i] > largest) {
 				largest = a[i];
 			}
 		}
-		System.out.println(largest);
+		
 		return largest;
 	}
 	public static int min(int[] a) {
@@ -32,66 +32,78 @@ public class Stats {
 				min = a[i];
 			}
 		}
-		System.out.println(min);
+		
 		return min;
 	}
 	public static double mean(int[] a) {
 		double mean = 0.0;
-		int sum = 0;
-		int j = 0;
+		double sum = 0.0;
+		double j = 0.0;
 		for (int i = 0; i<a.length; i++) {
 			sum += a[i];
 			j++;
 		}
 		mean = sum/j;
-		System.out.println(mean);
+		
 		return mean;
 	}
 	public static double median(int[] a) {
 		double median = 0.0;
-		int length = 0;
-		for (int i = 0; i<a.length; i++) {
-			length++;
-		}
-		if (length % 2 == 0) {
-			median = (length /2.0) + 0.5;
+		int i = ((a.length / 2) - 1);
+		double add = a[i];
+		double add2 = a[i+1];
+		if ((a.length % 2) == 0) {
+			median = ((add + add2) / 2.0);;
 		} else {
-			median = a[length / 2];
+			median = add2;
 		}
 		return median;
 	}
 	public static double quartile1(int[] a) {
-		double median = a[0];
+		double total = 0.0;
+		int i = 0;
 		int length = 0;
-		for (int i = 0; i<a.length; i++) {
-			length++;
-		}
-		if (length % 2 == 0) {
-			median = ((double)a[length-1] / 4) + 0.5;
+		if (a.length % 2 == 0) {
+			i = (a.length / 2);
 		} else {
-			median = a[(length - 1) / 4] + 0.5;
+			i = (a.length / 2) + 1;
 		}
-		return median;
+		
+		if (i % 2 == 0) {
+			length = (i / 2) - 1;
+			total = (a[length] + a[length + 1]) / 2.0;
+		} else {
+			length = (i / 2);
+			total = a[length];
+		}
+		return total;
 	}
 	public static double quartile3(int[] a) {
-		double median = a[0];
-		int length = 0;
-		for (int i = 0; i<a.length; i++) {
-			length++;
-		}
-		if (length % 2 == 0) {
-			median = ((double)a[length-1] / 4 * 3) + 0.5;
+		double total = 0.0;
+		int i = 0;
+		int length = a.length;
+
+		if (a.length % 2 ==0) {
+			i = (a.length / 2);
 		} else {
-			median = ((double)a[a.length - 1] / 4 * 3) + 0.25;
+			i = (a.length / 2) + 1;
 		}
-		return median;
+
+		if (i % 2 == 0) {
+			length = ((i/2) + (a.length)) / 2;
+			total = (a[length] + a[length+1]) / 2.0;
+		} else {
+			length = i / 2;
+			total = (a[length] * 2) + 1;
+		}
+		return total;
 	}
-	public static int mode(int[] a) {
+	public static double mode(int[] a) {
 		int length = 0;
 		for (int j=0; j<a.length; j++) {
 			length++;
 		}
-		int num = a[0];
+		double num = a[0];
 		int finalCount = 0;
 		for (int i=0; i<a.length; i++) {
 			int occurance = 0;
@@ -105,8 +117,8 @@ public class Stats {
 				num = a[i];
 			}
 		}
-		System.out.println("The mode is: " + num);
-		System.out.println("It occurs " + finalCount + " time(s).");
+		
+		
 		return num;
 	}
 	public static double standardDeviation(int[] a) {
@@ -118,7 +130,7 @@ public class Stats {
 		}
 		sum = sum / (a.length-1);
 		total = Math.sqrt(sum);
-		System.out.println("The standard deviation of this array is: " + total);
+		
 		return total;
 	}
 }
