@@ -1,6 +1,6 @@
 public class Stats {
 	public static void main(String[] args) {
-		int[] a = {-1, -2, -5, -5, -5, 6, 99, 99};
+		int[] a = {1, 2, 3, 4};
 
 		print(max(a));
 		print(min(a));
@@ -93,8 +93,8 @@ public class Stats {
 			length = ((i/2) + (a.length)) / 2;
 			total = (a[length] + a[length+1]) / 2.0;
 		} else {
-			length = i / 2;
-			total = (a[length] * 2) + 1;
+			length = (i / 2);
+			total = (a[length] * 2);
 		}
 		return total;
 	}
