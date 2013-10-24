@@ -3,7 +3,9 @@ import java.awt.Graphics;
 
 public class AmericanFlag {
 	private Rectangle redRec;
-	public AmericanFlag(int width, int height, double scale) {
+	private double width;
+	private double height;
+	public AmericanFlag(double width, double height, double scale) {
 		//Rectangle redRec = new Rectangle(width, height, Color.red);
 		this.width = width * scale;
 		this.height = height * scale;
