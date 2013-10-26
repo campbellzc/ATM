@@ -2,22 +2,35 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rectangle {
-	private int height;
-	private int width;
-	private Color color;
-	public Rectangle(int width, int height, Color color) {
-		this.width = width;
-		this.height = height;
-		this.color = color;
-	}
-	public void draw(Graphics g, int x) {
-		g.setColor(color);
-		g.fillRect(0, x, width, height);
-	}
-	public int getWidth() {
-		return this.width;
-	}
-	public int getHeight() {
-		return this.height;
-	}
+
+        private int width;
+        private int height;
+        private Color color;
+        private Point point;
+        
+
+        public Rectangle(int width, int height, Color color, Point point){
+                
+                this.width = width;
+                this.height = height;
+                this.point = point;
+                this.color = color;
+                
+        }
+
+        public void paint(Graphics g) {
+                
+                g.setColor(this.color);
+                g.fillRect(this.point.getX(), this.point.getY(), width, height);
+                
+        }
+
+        public int getWidth(){
+                return this.width;
+        }
+
+        public int getHeight() {
+                return this.height;
+        }
+
 }
