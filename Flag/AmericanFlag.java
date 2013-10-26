@@ -27,8 +27,8 @@ public class AmericanFlag {
                         stripes[i] = new Rectangle(this.width, this.height/13, Color.WHITE, new Point(0,yOffset));
                         yOffset = yOffset + (((int)this.height/13) * 2);
                 }
-                this.star = new Stars(diameter, new Point((int)(height*0.0315), (int)(height*0.054)), Color.WHITE);
-                for (int i = 1; i < states.length; i++) {
+                //this.star = new Stars(diameter, new Point((int)(height*0.0315), (int)(height*0.054)), Color.WHITE);
+                for (int i = 0; i < states.length; i++) {
                         states[i] = new Stars(diameter, new Point(((int)(height*0.0315)+starOffsetX), starOffsetY), Color.WHITE);
                         starOffsetX = (starOffsetX*i);
                         starOffsetY = (starOffsetY);
