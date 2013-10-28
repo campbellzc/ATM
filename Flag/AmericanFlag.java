@@ -13,27 +13,42 @@ public class AmericanFlag {
         private Stars star;
         private Stars[] states;
         public AmericanFlag(int width, int height, double scale) {
-                double diameter = (.0616*height);
-                int starOffsetY = 0;
-                int variable = 1;
-                int starOffsetX = (int)(height*0.0315);
-                this.states = new Stars[4];
+                
+                int starOffsetY = 50;
+                int variable = 3;
+                
+                int starOffsetX = 0;
+                this.states = new Stars[6];
                 this.stripes = new Rectangle[6];
                 int yOffset = (int)(height/13.0);
                 this.height = height * (int)scale;
                 this.width = width * (int)scale;
+                double diameter = (.0616*this.height);
+                int uWidth = (int)(((double)this.height) * 0.76);
+                int uHeight = (int)yOffset * 7;
                 this.redRec = new Rectangle(this.width, this.height, Color.RED, new Point(0,0));
-                this.union = new Rectangle((int)(((double)this.height) * 0.76), (int)yOffset * 7, Color.BLUE, new Point(0,0));
+                this.union = new Rectangle(uWidth, uHeight, Color.BLUE, new Point(0,0));
                 for (int i = 0; i < stripes.length; i++) {
                         stripes[i] = new Rectangle(this.width, this.height/13, Color.WHITE, new Point(0,yOffset));
                         yOffset = yOffset + (((int)this.height/13) * 2);
                 }
+                int maxStars = 6;
+                int starCount = 0;
+                int startingX = ((uWidth/12)/2);
+                int startingY = (uHeight/10);
                 //this.star = new Stars(diameter, new Point((int)(height*0.0315), (int)(height*0.054)), Color.WHITE);
                 for (int i = 0; i < states.length; i++) {
-                        states[i] = new Stars(diameter, new Point((variable*starOffsetX), starOffsetY), Color.WHITE);
-                        starOffsetX = (starOffsetX*i);
+                        //this.star = new Stars(diameter, new Point(starOffsetX, starOffsetY), Color.WHITE);
+                        //if (starCount < maxStars) {
+                                states[i] = new Stars(diameter, new Point(startingX+starOffsetX, startingY), Color.WHITE);
+                                starCount++;
+                                //variable++;
+                                starOffsetX = (startingX*variable);
+                        //}
+                        
+                        
                         starOffsetY = (starOffsetY);
-                        variable++;
+                        
                 }
 
         }
