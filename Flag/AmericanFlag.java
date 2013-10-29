@@ -40,6 +40,7 @@ public class AmericanFlag {
                 for (int i = 0; i < states.length; i++) {
                         //this.star = new Stars(diameter, new Point(starOffsetX, starOffsetY), Color.WHITE);
                         //if (starCount < maxStars) {
+                                //states[i] = new Stars(diameter, new Point(startingX + starOffsetX, (startingY+100)), Color.GREEN);
                                 states[i] = new Stars(diameter, new Point(startingX+starOffsetX, startingY), Color.WHITE);
                                 starCount++;
                                 //variable++;
