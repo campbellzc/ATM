@@ -15,7 +15,7 @@ public class AmericanFlag {
         public AmericanFlag(int width, int height, double scale) {
                 
                 int starOffsetY = 50;
-                int variable = 3;
+                int variable = 0;
                 
                 int starOffsetX = 0;
                 this.states = new Stars[6];
@@ -43,7 +43,7 @@ public class AmericanFlag {
                                 //states[i] = new Stars(diameter, new Point(startingX + starOffsetX, (startingY+100)), Color.GREEN);
                                 states[i] = new Stars(diameter, new Point(startingX+starOffsetX, startingY), Color.WHITE);
                                 starCount++;
-                                //variable++;
+                                variable += 3;
                                 starOffsetX = (startingX*variable);
                         //}
                         
